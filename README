@@ -1,0 +1,119 @@
+# Local AI Chat on Android 🚀
+
+Ce projet est une preuve de concept (Proof-of-Concept) démontrant le déploiement d'un grand modèle de langage (LLM) en environnement 100% local sur un appareil Android, servi par une interface web construite avec Streamlit.
+
+L'objectif principal était un défi personnel et d'apprentissage : explorer la faisabilité et les performances d'une pile IA complète dans un environnement non conventionnel et à ressources limitées, sans aucune dépendance au cloud.
+
+![image](https://github.com/djaouad-ch/local-ai-chat-android/assets/103175782/25a1762c-da0f-4886-9ac6-857a2569fcc4)
+
+<!-- NOTE POUR TOI : Remplace le lien de l'image ci-dessus par une vraie capture d'écran de ton application en fonctionnement ! C'est très important. -->
+
+## 🎯 Contexte et Objectif
+
+En tant que développeur en reconversion dans l'IA, j'ai voulu démystifier le déploiement de modèles et comprendre l'ensemble de la chaîne, du serveur d'inférence à l'interface utilisateur. Plutôt que d'utiliser des services cloud, j'ai choisi de relever le défi de tout faire fonctionner sur mon téléphone Android pour maîtriser les contraintes de performance, de stockage et de configuration dans un environnement Linux embarqué (via Termux).
+
+Ce projet met en évidence les compétences suivantes :
+
+- **Intégration de systèmes :** Assemblage et configuration de composants hétérogènes (Ollama, Streamlit, Python) pour créer une application fonctionnelle.
+- **Déploiement en environnement contraint :** Gestion des ressources (RAM, CPU) sur un appareil mobile.
+- **Résolution de problèmes :** Surmonter les défis liés à l'architecture aarch64 et à l'écosystème Termux/proot-distro.
+- **Full-Stack IA :** Compréhension du flux de données depuis l'interaction utilisateur jusqu'à la réponse du modèle.
+
+## ⚙️ Architecture et Stack Technique
+
+L'application fonctionne en suivant ce schéma simple :
+
+`[Utilisateur sur Android] -> [Interface Web Streamlit] -> [Serveur Ollama local] -> [Modèle Gemma 3]`
+
+- **Serveur d'inférence :** [Ollama](https://ollama.com/) pour servir le modèle de langage localement.
+- **Interface Web (Frontend) :** [Streamlit](https://streamlit.io/) pour créer rapidement une interface de chat interactive.
+- **Modèle de Langage (LLM) :** `gemma3:270m`, un modèle léger et performant adapté à une exécution locale.
+- **Langage de "glue" :** Python 3.10 pour le script Streamlit et les appels à l'API d'Ollama.
+- **Environnement d'exécution :** [Termux](https://termux.dev/) avec une distribution Ubuntu 22.04 (via `proot-distro`) sur Android 12.
+
+## 🛠️ Guide d'Installation
+
+Ce guide suppose que vous avez déjà installé Termux et une distribution Ubuntu via `proot-distro`.
+
+### 1. Prérequis dans Ubuntu
+
+Assurez-vous que les outils de base sont installés :
+```bash
+apt update && apt upgrade -y
+apt install -y python3.10 python3.10-venv curl git
+```
+
+### 2. Installation d'Ollama
+
+Suivez les instructions officielles pour une installation manuelle sur Linux ARM64 :
+
+```bash
+# Lancer le script d'installation
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Démarrer le serveur Ollama dans un terminal séparé (ou avec tmux/screen)
+ollama serve
+```
+
+### 3. Téléchargement du Modèle
+
+Dans un autre terminal, téléchargez le modèle Gemma 3 :
+
+```bash
+ollama pull gemma3:270m
+```
+
+### 4. Mise en Place du Projet
+
+Clonez ce dépôt et préparez l'environnement virtuel Python :
+
+```bash
+# Clonez le projet
+git clone https://github.com/TON-NOM-UTILISATEUR/TON-NOM-DE-PROJET.git
+cd TON-NOM-DE-PROJET
+
+# Créez et activez l'environnement virtuel
+python3.10 -m venv venv310
+source venv310/bin/activate
+
+# Installez les dépendances
+pip install --no-cache-dir -r requirements.txt
+```
+
+> **Note** : Le fichier `requirements.txt` doit contenir les lignes suivantes :
+> ```
+> streamlit
+> requests
+> ```
+
+---
+
+## 🚀 Lancement de l'application
+
+Une fois que le serveur Ollama est en cours d'exécution, lancez l'application Streamlit :
+
+```bash
+# Assurez-vous que votre venv est activé
+source venv310/bin/activate
+
+# Lancez l'application
+streamlit run app.py
+```
+
+Ouvrez ensuite votre navigateur sur l'adresse IP locale et le port indiqués par Streamlit (généralement http://127.0.0.1:8501).
+
+---
+
+## 🗺️ Prochaines Étapes (Roadmap)
+
+- Implémenter le streaming de la réponse token par token.
+- Ajouter un bouton "Arrêter la génération".
+- Afficher un état "occupé" pendant que le modèle réfléchit.
+- Gérer les erreurs de connexion au serveur Ollama.
+- Permettre la sélection du modèle depuis l'interface.
+
+---
+
+## 📄 Licence
+
+Ce projet est distribué sous la licence MIT. Voir le fichier LICENSE pour plus de détails.
