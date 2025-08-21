@@ -130,11 +130,19 @@ Ouvrez ensuite votre navigateur sur l'adresse IP locale et le port indiqués par
 
 ## 🗺️ Prochaines Étapes (Roadmap)
 
-- Implémenter le streaming de la réponse token par token.
-- Ajouter un bouton "Arrêter la génération".
-- Afficher un état "occupé" pendant que le modèle réfléchit.
-- Gérer les erreurs de connexion au serveur Ollama.
-- Permettre la sélection du modèle depuis l'interface.
+### Frontend & UX 🎨
+- **Persistance de l'historique** : Sauvegarder les conversations entre les sessions (LocalStorage ou fichier)
+- **Améliorer l'interface** : Design plus moderne, thèmes, mise en page optimisée
+- Implémenter le streaming de la réponse token par token
+- Ajouter un bouton "Arrêter la génération"
+
+### Fonctionnalités avancées 🚀
+- Exporter/importer les conversations (JSON, TXT)
+- Paramètres utilisateur (température, longueur max, etc.)
+- Permettre la sélection du modèle depuis l'interface *(à long terme)*
+
+### Techniques 🔧
+- Gérer les erreurs de connexion au serveur Ollama *(non prioritaire)*
 
 ---
 

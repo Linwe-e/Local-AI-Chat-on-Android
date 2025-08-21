@@ -127,7 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-venv310/
+.venv310/
 
 # Spyder project settings
 .spyderproject
@@ -184,6 +184,15 @@ $RECYCLE.BIN/
 
 # Streamlit specific
 .streamlit/
+
+# Chat history (contains private conversations)
+chat_history.json
+
+# AI instructions (contains development context)
+.github/copilot-instructions.md
+
+# Environment variables (contains private IPs)
+.env
 
 # Temporary files
 *.tmp
