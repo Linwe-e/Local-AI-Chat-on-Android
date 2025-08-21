@@ -4,7 +4,7 @@ Ce projet est une preuve de concept (Proof-of-Concept) démontrant le déploieme
 
 L'objectif principal était un défi personnel et d'apprentissage : explorer la faisabilité et les performances d'une pile IA complète dans un environnement non conventionnel et à ressources limitées, sans aucune dépendance au cloud.
 
-![Application Demo](screenshots/IMG-20250820-WA0000-EDIT.jpg)
+<img src="screenshots/IMG-20250820-WA0000-EDIT.jpg" alt="Application Demo" width="300"/>
 
 ## 🎯 Contexte et Objectif
 
