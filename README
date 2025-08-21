@@ -4,9 +4,7 @@ Ce projet est une preuve de concept (Proof-of-Concept) démontrant le déploieme
 
 L'objectif principal était un défi personnel et d'apprentissage : explorer la faisabilité et les performances d'une pile IA complète dans un environnement non conventionnel et à ressources limitées, sans aucune dépendance au cloud.
 
-![image](https://github.com/djaouad-ch/local-ai-chat-android/assets/103175782/25a1762c-da0f-4886-9ac6-857a2569fcc4)
-
-<!-- NOTE POUR TOI : Remplace le lien de l'image ci-dessus par une vraie capture d'écran de ton application en fonctionnement ! C'est très important. -->
+![Application Demo](screenshots/IMG-20250820-WA0000-EDIT.jpg)
 
 ## 🎯 Contexte et Objectif
 
@@ -69,8 +67,8 @@ Clonez ce dépôt et préparez l'environnement virtuel Python :
 
 ```bash
 # Clonez le projet
-git clone https://github.com/TON-NOM-UTILISATEUR/TON-NOM-DE-PROJET.git
-cd TON-NOM-DE-PROJET
+git clone https://github.com/Linwe-e/Local-AI-Chat-on-Android.git
+cd Local-AI-Chat-on-Android
 
 # Créez et activez l'environnement virtuel
 python3.10 -m venv venv310
@@ -97,7 +95,7 @@ Une fois que le serveur Ollama est en cours d'exécution, lancez l'application S
 source venv310/bin/activate
 
 # Lancez l'application
-streamlit run app.py
+streamlit run streamlit_ollama_chat.py
 ```
 
 Ouvrez ensuite votre navigateur sur l'adresse IP locale et le port indiqués par Streamlit (généralement http://127.0.0.1:8501).
