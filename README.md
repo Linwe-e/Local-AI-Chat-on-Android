@@ -14,6 +14,7 @@ Ce projet met en évidence les compétences suivantes :
 
 - **Intégration de systèmes :** Assemblage et configuration de composants hétérogènes (Ollama, Streamlit, Python) pour créer une application fonctionnelle.
 - **Déploiement en environnement contraint :** Gestion des ressources (RAM, CPU) sur un appareil mobile.
+- **Configuration réseau avancée :** Mise en place d'une connexion SSH entre laptop et téléphone Android pour développer directement sur VS Code depuis le PC.
 - **Résolution de problèmes :** Surmonter les défis liés à l'architecture aarch64 et à l'écosystème Termux/proot-distro.
 - **Full-Stack IA :** Compréhension du flux de données depuis l'interaction utilisateur jusqu'à la réponse du modèle.
 
@@ -32,6 +33,31 @@ L'application fonctionne en suivant ce schéma simple :
 ## 🛠️ Guide d'Installation
 
 Ce guide suppose que vous avez déjà installé Termux et une distribution Ubuntu via `proot-distro`.
+
+### 0. Configuration du Développement (Optionnel)
+
+Pour une expérience de développement optimale, configurez une connexion SSH entre votre PC et votre téléphone Android pour développer avec un clavier complet :
+
+```bash
+# 1. Installation SSH sur Android/Termux
+pkg install openssh
+
+# 2. Démarrage du serveur SSH (à faire à chaque session)
+sshd
+
+# 3. Récupération de l'IP Android
+# Windows : ipconfig
+# Android : Paramètres > Wi-Fi > Détails réseau
+
+# 4. Connexion SSH depuis Windows
+ssh -p 8022 u0_a252@[IP_ANDROID]
+cd ~/ollama-webui
+streamlit run app.py
+```
+
+**Workflow hybride :** Code sur Windows → Sync Git → Exécution SSH Android → Accès navigateur Windows
+
+Avantages : Développement confortable + Exécution locale + IA 100% offline
 
 ### 1. Prérequis dans Ubuntu
 
