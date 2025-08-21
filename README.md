@@ -130,11 +130,14 @@ Ouvrez ensuite votre navigateur sur l'adresse IP locale et le port indiqués par
 
 ## 🗺️ Prochaines Étapes (Roadmap)
 
+### ✅ Fonctionnalités Implémentées
+- ~~**Persistance de l'historique**~~ : ✅ Sauvegarde automatique des conversations via fichier JSON
+- ~~**Bouton "Arrêter la génération"**~~ : ✅ Interruption en temps réel du streaming
+- ~~**Streaming token par token**~~ : ✅ Réponses en temps réel avec accumulation
+
 ### Frontend & UX 🎨
-- **Persistance de l'historique** : Sauvegarder les conversations entre les sessions (LocalStorage ou fichier)
 - **Améliorer l'interface** : Design plus moderne, thèmes, mise en page optimisée
-- Implémenter le streaming de la réponse token par token
-- Ajouter un bouton "Arrêter la génération"
+- **Gestion de l'historique** : Pagination, recherche dans les conversations
 
 ### Fonctionnalités avancées 🚀
 - Exporter/importer les conversations (JSON, TXT)
